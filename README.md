@@ -1,4 +1,17 @@
-# Flywheel Evidence Task
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/HarperZ9/flywheel-evidence-task/main/docs/art/hero-dark.svg">
+  <img src="https://raw.githubusercontent.com/HarperZ9/flywheel-evidence-task/main/docs/art/hero-light.svg" alt="flywheel-evidence-task: Turn a claim into a source-linked evidence packet. A fan of ruled sheets drawn in fine lines, the top sheet lit by a bright core." width="100%">
+</picture>
+
+# flywheel-evidence-task
+
+Turn a claim into a source-linked evidence packet.
+
+```
+/plugin marketplace add HarperZ9/flywheel-evidence-task
+```
+
+[![license](https://img.shields.io/badge/license-FSL--1.1--MIT-e6e1d6?style=flat-square&labelColor=1a1712)](https://github.com/HarperZ9/flywheel-evidence-task/blob/main/LICENSE)
 
 A skill that turns a claim into a source-linked evidence packet. Give it a claim
 about Flywheel or Bulletin, the sources it may use, and the decision the answer
