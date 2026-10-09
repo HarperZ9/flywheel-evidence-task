@@ -27,6 +27,12 @@ Version 0.2.0. License: [FSL-1.1-MIT](LICENSE).
 - Assess this Bulletin feedback thread and separate reported, checked and unknown claims.
 - Check whether this readiness claim holds, with a false-success control.
 
+## See it work, step by step
+
+The [animated explainer](https://harperz9.github.io/repo-explainers/flywheel-evidence-task.html)
+walks through the skill's workflow from decision to packet, the controls it defines before concluding, the packet's fixed shape, its three worked examples, and the package self-check. Every value on it is output from this repository. Its
+source is [docs/explainer/index.html](docs/explainer/index.html).
+
 ## Install
 
 In Claude Code:
