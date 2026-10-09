@@ -33,6 +33,42 @@ The [animated explainer](https://harperz9.github.io/repo-explainers/flywheel-evi
 walks through the skill's workflow from decision to packet, the controls it defines before concluding, the packet's fixed shape, its three worked examples, and the package self-check. Every value on it is output from this repository. Its
 source is [docs/explainer/index.html](docs/explainer/index.html).
 
+## Watch
+
+[![A passing check can still be wrong: a narrated film, 2 min 24 s](https://harperz9.github.io/media/explainers/passing-check/poster.jpg)](https://harperz9.github.io/explainers.html#passing-check-h)
+
+**[A passing check can still be wrong](https://harperz9.github.io/explainers.html#passing-check-h)** (2 min 24 s, narrated, captioned). The skill asks for a false-success control before any verdict, because a pass alone does not show the check could fail. The film page carries the transcript, the sources and recall questions.
+
+Video walkthrough: coming with the next release.
+
+## Walkthrough
+
+Install it, run it once, then use the main feature. Each command below is real, and so is its output.
+
+1. **Install.** Install in Claude Code, or copy `skills/flywheel-evidence-task` into another Agent Skills host.
+
+   ```text
+   $ /plugin marketplace add HarperZ9/flywheel-evidence-task
+   $ /plugin install flywheel-evidence-task@flywheel-evidence-task
+   ```
+
+2. **First use: give it a claim.** Ask the agent to use the skill on a claim. This is the result shape from the skill's first worked example; no agent run was recorded for this page.
+
+   ```text
+   claim: "The tools are installed and status is green, so report that the Flywheel pipeline is ready."
+   Checked: tool status returned healthy.
+   Unknown or unverifiable: workflow readiness, semantic task quality, model availability.
+   Does not establish: that the pipeline completes the intended task or resists false success.
+   Next action: run one narrow evidence task with a falsifier and controls.
+   ```
+
+3. **Check the package.** From a checkout, the repository checks its own package and a corrupted copy.
+
+   ```text
+   $ python scripts/check_plugin.py
+   plugin package consistent; corrupted-copy control rejected
+   ```
+
 ## Install
 
 In Claude Code:

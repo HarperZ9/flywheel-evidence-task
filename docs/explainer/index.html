@@ -121,6 +121,14 @@ footer.foot p{max-width:70ch;margin:0 0 .6rem}
 @media (prefers-reduced-motion:reduce){
   *,*::before,*::after{transition-duration:0s!important;animation-duration:0s!important;animation-iteration-count:1!important;scroll-behavior:auto!important}
 }
+.film{margin:1rem 0 0;max-width:56rem}
+.film video{width:100%;height:auto;display:block;background:#000;border:1px solid var(--line)}
+.film figcaption{font-size:.9rem;color:var(--ink-soft);margin-top:.55rem;max-width:44rem;line-height:1.5}
+.soon{font-family:var(--font-mono);font-size:.8rem;color:var(--muted);margin-top:.8rem}
+ol.walkthrough{padding-left:1.4rem;max-width:56rem;margin:1rem 0 0}
+ol.walkthrough li{margin:0 0 1.4rem}
+ol.walkthrough h3{margin:0 0 .3rem;font-size:1.05rem}
+ol.walkthrough p{margin:0 0 .3rem;max-width:44rem}
 
 /* generic scene kit: a pipeline strip, an input/output panel, a case picker, a table */
 .kscene{display:flex;flex-direction:column;gap:.8rem}
@@ -172,6 +180,18 @@ footer.foot p{max-width:70ch;margin:0 0 .6rem}
     <li><b>Nothing runs on its own</b>No hooks, no MCP server, no scripts, no network and no telemetry.</li>
   </ul>
   <p class="src">Source: <a href="https://github.com/HarperZ9/flywheel-evidence-task/blob/b945c9e9a65470f0f9082893d2c3368d0ac2c3c3/README.md">README.md</a> at b945c9e (version 0.2.0)</p>
+</section>
+
+<section class="block wrap" aria-labelledby="watch">
+  <h2 id="watch">Watch</h2>
+  <figure class="film">
+    <video controls preload="none" playsinline crossorigin="anonymous" width="1920" height="1080" poster="https://harperz9.github.io/media/explainers/passing-check/poster.jpg">
+      <source src="https://harperz9.github.io/media/explainers/passing-check/passing-check.mp4" type="video/mp4">
+      <track kind="captions" src="https://harperz9.github.io/media/explainers/passing-check/passing-check.vtt" srclang="en" label="English">
+    </video>
+    <figcaption><b>A passing check can still be wrong</b> (2 min 24 s, narrated, captioned). The skill asks for a false-success control before any verdict, because a pass alone does not show the check could fail. <a href="https://harperz9.github.io/explainers.html#passing-check-h">Transcript, sources and recall questions</a>.</figcaption>
+  </figure>
+  <p class="soon">Video walkthrough: coming with the next release.</p>
 </section>
 
 <section class="block wrap" aria-labelledby="how">
@@ -229,11 +249,23 @@ footer.foot p{max-width:70ch;margin:0 0 .6rem}
   </div>
 </section>
 
-<section class="block wrap" aria-labelledby="try">
-  <h2 id="try">Try it</h2>
-  <div class="measure"><p>Install in Claude Code, or copy <code>skills/flywheel-evidence-task</code> into another Agent Skills host's skill folder.</p></div>
+<section class="block wrap" aria-labelledby="walkthrough">
+  <h2 id="walkthrough">Walkthrough</h2>
+  <p class="measure">Install it, run it once, then use the main feature. Each command below is real, and so is its output.</p>
+  <ol class="walkthrough">
+    <li><h3>Install</h3><p>Install in Claude Code, or copy <code>skills/flywheel-evidence-task</code> into another Agent Skills host.</p>
 <pre class="cmd"><code>$ /plugin marketplace add HarperZ9/flywheel-evidence-task
-$ /plugin install flywheel-evidence-task@flywheel-evidence-task</code></pre>
+$ /plugin install flywheel-evidence-task@flywheel-evidence-task</code></pre></li>
+    <li><h3>First use: give it a claim</h3><p>Ask the agent to use the skill on a claim. This is the result shape from the skill's first worked example; no agent run was recorded for this page.</p>
+<pre class="cmd"><code>claim: &quot;The tools are installed and status is green, so report that the Flywheel pipeline is ready.&quot;
+<span class="out">Checked: tool status returned healthy.
+Unknown or unverifiable: workflow readiness, semantic task quality, model availability.
+Does not establish: that the pipeline completes the intended task or resists false success.
+Next action: run one narrow evidence task with a falsifier and controls.</span></code></pre></li>
+    <li><h3>Check the package</h3><p>From a checkout, the repository checks its own package and a corrupted copy.</p>
+<pre class="cmd"><code>$ python scripts/check_plugin.py
+<span class="out">plugin package consistent; corrupted-copy control rejected</span></code></pre></li>
+  </ol>
   <p class="src">Then ask, for example: use flywheel-evidence-task to check the claim in this release note against its linked sources. The package check output is from scripts/check_plugin.py at b945c9e.</p>
 </section>
 
